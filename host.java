@@ -1,0 +1,169 @@
+import java.lang.NumberFormatException;
+import java.io.IOException;
+import java.lang.String;
+import java.io.OutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.DataOutputStream;
+import java.io.DataInputStream;	
+import java.io.PrintStream;
+import java.io.BufferedReader;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
+import java.io.FileWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.io.*;
+
+public class host {
+	public static void main(String srgs[]) {
+		int count = 0;
+//	        String str;
+		//hard code to use https (8080)
+		try(ServerSocket serverSocket = new ServerSocket(8343)){
+		   System.out.println("Ready to go: " + serverSocket.getLocalPort());
+			while (true) {
+				try{
+				//	String str;
+					Socket socket = serverSocket.accept();
+					count++;
+					
+					
+					System.out.println("#" + count + " from "
+						+ socket.getInetAddress() + ":"
+						+ socket.getPort());
+					/*  move to background thread
+                    OutputStream outputStream = socket.getOutputStream();
+                    try (PrintStream printStream = new PrintStream(outputStream)) {
+                        printStream.print("Hello from Raspberry Pi, you are #" + count);
+                    }
+                    */
+                    HostThread myHostThread = new HostThread(socket, count);
+                    myHostThread.start();
+		
+			     
+                } catch(IOException ex){
+                	System.out.println(ex.toString());
+                }
+            }
+        } catch (IOException ex){
+        	System.out.println(ex.toString());
+        }
+	   
+	   
+    }
+    private static class HostThread extends Thread{
+    	private Socket hostThreadSocket;
+    	int cnt;
+
+    	HostThread(Socket socket, int c){
+    		hostThreadSocket = socket;
+    		cnt = c;
+    	}
+    	@Override
+    	public void run() {
+    		
+    		OutputStream outputStream;
+    		try{
+		   String str;
+		   BufferedReader br = new BufferedReader(new InputStreamReader(hostThreadSocket.getInputStream()));
+		   str = br.readLine();
+		   System.out.println("Received: " + str);
+		   if(str.startsWith("#") && str.endsWith("%"))
+		      {
+			 try
+			   {
+			      
+		   //IN
+		   int endIn = str.lastIndexOf("#");
+		   int secIn = str.lastIndexOf("$");
+		   String inFin = str.substring(endIn +1, secIn); //Write to file. *Total In Count
+		   Integer inInt = Integer.parseInt(inFin);
+		   //End of IN
+		   //OUT
+		   int secOut = str.lastIndexOf("*");
+		   String outFin = str.substring(secIn + 1, secOut); //Write to file. *Total Out Count
+		   Integer outInt = Integer.parseInt(outFin);
+		   //End of OUT
+		   //AREA
+		   int endAr = str.lastIndexOf("%");
+		   String arFin = str.substring(secOut + 1, endAr);
+		   Float arFloat = Float.parseFloat(arFin);
+		   //End of AREA
+		   //PRINTING
+		   System.out.println("In: " + inFin);
+		   System.out.println("Out: " + outFin);
+		   System.out.println("Area: " + arFin);
+		   //End of PRINTING
+		   //TIME
+		   outputStream = hostThreadSocket.getOutputStream();
+		   Calendar currentdate = Calendar.getInstance();
+		   String month = null;
+		   String date = null;
+		   String hour = null;
+		   String minute = null;
+		   String second = null;
+		   DateFormat monthForm = new SimpleDateFormat("MM");
+		   DateFormat dateForm = new SimpleDateFormat("dd");
+		   DateFormat hourForm = new SimpleDateFormat("HH");
+		   DateFormat minuteForm = new SimpleDateFormat("mm");
+		   DateFormat secondForm = new SimpleDateFormat("ss");
+		   TimeZone obj = TimeZone.getTimeZone("IST");
+		   monthForm.setTimeZone(obj);
+		   dateForm.setTimeZone(obj);
+		   hourForm.setTimeZone(obj);
+		   minuteForm.setTimeZone(obj);
+		   secondForm.setTimeZone(obj);
+		   month = monthForm.format(currentdate.getTime()); //Write to file *Curent Month in IST
+		   date = dateForm.format(currentdate.getTime()); //Write to file *Current Date in IST
+		   hour = hourForm.format(currentdate.getTime()); //Write to file *Current Hour in IST
+		   minute = minuteForm.format(currentdate.getTime()); //Write to file *Current Minute in IST
+		   second = secondForm.format(currentdate.getTime()); //Write to file *Current Second in IST
+		   //End Of Time
+		   //Area Per Person (APP)
+		   int pplInInt = inInt - outInt;
+		   String pplInStr = String.valueOf(pplInInt); //Write to file *Current People Inside
+		   Float ppFloat = new Float(pplInInt);
+		   float app = arFloat/ppFloat;
+		   String appForm = String.format("%.2f", app); //Write to file *Area Per Person
+		   //End of APP
+		   //CSV WRITE
+		   File csv = new File("/home/pi/plotly/data.csv");
+		   PrintStream ps = new PrintStream(new FileOutputStream("/home/pi/plotly/data.csv",true));
+		   ps.println(month + "," + date  + "," + hour  + "," + minute  + "," + second + "," + inFin + "," + outFin + "," + pplInStr + "," + appForm);
+		   //End of CSV WRITE
+		   try(PrintStream printStream = new PrintStream(outputStream)){
+		      printStream.print(str);
+		   }
+			   } catch(NumberFormatException e)
+				{
+				   e.printStackTrace();
+				}
+			 
+			 
+		      }
+		      
+		   else
+			   {
+			      outputStream = hostThreadSocket.getOutputStream();
+			      PrintStream printStream = new PrintStream(outputStream);
+			      printStream.print("Invalid Input");
+		   }
+		} catch (IOException ex){
+    			Logger.getLogger(host.class.getName()).log(Level.SEVERE, null, ex);
+    		}finally{
+    			try{
+    				hostThreadSocket.close();
+    			} catch (IOException ex){
+    				Logger.getLogger(host.class.getName()).log(Level.SEVERE, null, ex);
+    			}
+    		}
+	}
+    	}
+    }
