@@ -1,3 +1,222 @@
 Ready to go: 8080
 java.net.BindException: Address already in use
 java.net.BindException: Address already in use
+Ready to go: 8343
+#1 from /192.168.1.13:56445
+Received: #200$110%
+Exception in thread "Thread-0" java.lang.StringIndexOutOfBoundsException: String index out of range: -6
+	at java.lang.String.substring(String.java:1954)
+	at host$HostThread.run(host.java:91)
+#2 from /192.168.1.13:45352
+Received: #200$110%
+Exception in thread "Thread-1" java.lang.StringIndexOutOfBoundsException: String index out of range: -6
+	at java.lang.String.substring(String.java:1954)
+	at host$HostThread.run(host.java:91)
+#3 from /192.168.1.13:33843
+Received: #200$110%
+Exception in thread "Thread-2" java.lang.StringIndexOutOfBoundsException: String index out of range: -6
+	at java.lang.String.substring(String.java:1954)
+	at host$HostThread.run(host.java:91)
+#4 from /192.168.1.13:55076
+Received: #200$110%
+Exception in thread "Thread-3" java.lang.StringIndexOutOfBoundsException: String index out of range: -6
+	at java.lang.String.substring(String.java:1954)
+	at host$HostThread.run(host.java:91)
+#5 from /192.168.1.13:41053
+Received: #200$110%
+Exception in thread "Thread-4" java.lang.StringIndexOutOfBoundsException: String index out of range: -6
+	at java.lang.String.substring(String.java:1954)
+	at host$HostThread.run(host.java:91)
+#6 from /192.168.1.13:52679
+Received: #200$110%
+Exception in thread "Thread-5" java.lang.StringIndexOutOfBoundsException: String index out of range: -6
+	at java.lang.String.substring(String.java:1954)
+	at host$HostThread.run(host.java:91)
+#7 from /192.168.1.13:35092
+Received: #200$110%
+Exception in thread "Thread-6" java.lang.StringIndexOutOfBoundsException: String index out of range: -6
+	at java.lang.String.substring(String.java:1954)
+	at host$HostThread.run(host.java:91)
+#8 from /192.168.1.13:41972
+Received: #200$110%
+Exception in thread "Thread-7" java.lang.StringIndexOutOfBoundsException: String index out of range: -6
+	at java.lang.String.substring(String.java:1954)
+	at host$HostThread.run(host.java:91)
+Ready to go: 8343
+#1 from /192.168.1.13:43438
+Received: #200$110%
+Exception in thread "Thread-0" java.lang.StringIndexOutOfBoundsException: String index out of range: -6
+	at java.lang.String.substring(String.java:1954)
+	at host$HostThread.run(host.java:91)
+#2 from /192.168.1.13:41760
+Received: #200$110%
+Exception in thread "Thread-1" java.lang.StringIndexOutOfBoundsException: String index out of range: -6
+	at java.lang.String.substring(String.java:1954)
+	at host$HostThread.run(host.java:91)
+#3 from /192.168.1.13:58730
+Received: #200$110%
+Exception in thread "Thread-2" java.lang.StringIndexOutOfBoundsException: String index out of range: -6
+	at java.lang.String.substring(String.java:1954)
+	at host$HostThread.run(host.java:91)
+#4 from /192.168.1.13:47352
+Received: #200$110%
+Exception in thread "Thread-3" java.lang.StringIndexOutOfBoundsException: String index out of range: -6
+	at java.lang.String.substring(String.java:1954)
+	at host$HostThread.run(host.java:91)
+#5 from /192.168.1.13:53326
+Received: #200$110%
+Exception in thread "Thread-4" java.lang.StringIndexOutOfBoundsException: String index out of range: -6
+	at java.lang.String.substring(String.java:1954)
+	at host$HostThread.run(host.java:91)
+#6 from /192.168.1.13:41282
+Received: #200$110%
+Exception in thread "Thread-5" java.lang.StringIndexOutOfBoundsException: String index out of range: -6
+	at java.lang.String.substring(String.java:1954)
+	at host$HostThread.run(host.java:91)
+#7 from /192.168.1.13:57878
+Received: #200$110%
+Exception in thread "Thread-6" java.lang.StringIndexOutOfBoundsException: String index out of range: -6
+	at java.lang.String.substring(String.java:1954)
+	at host$HostThread.run(host.java:91)
+Ready to go: 8343
+Ready to go: 8343
+#1 from /27.97.136.53:27139
+Received: #200$100*10%
+In: 200
+Out: 100
+Area: 10
+#2 from /27.97.136.53:24516
+Received: #200$100*10%
+In: 200
+Out: 100
+Area: 10
+#3 from /115.244.217.78:4248
+Received: #49$0*-0.0%
+In: 49
+Out: 0
+Area: -0.0
+#4 from /115.244.217.78:55787
+Received: #68$0*-2.9411764%
+In: 68
+Out: 0
+Area: -2.9411764
+#5 from /123.239.61.43:5992
+Received: #73$0*-2.739726%
+In: 73
+Out: 0
+Area: -2.739726
+#6 from /123.239.61.43:9906
+Received: #75$0*-2.6666667%
+In: 75
+Out: 0
+Area: -2.6666667
+#7 from /123.239.61.43:30712
+Received: #76$0*-2.631579%
+In: 76
+Out: 0
+Area: -2.631579
+#8 from /123.239.61.43:7758
+Received: #81$0*-2.4691358%
+In: 81
+Out: 0
+Area: -2.4691358
+#9 from /123.239.61.43:65269
+Received: #84$0*-2.3809524%
+In: 84
+Out: 0
+Area: -2.3809524
+#10 from /123.239.61.43:49421
+Received: #88$0*-2.2727273%
+In: 88
+Out: 0
+Area: -2.2727273
+#11 from /123.239.61.43:30715
+Received: #100$0*-2.0%
+In: 100
+Out: 0
+Area: -2.0
+#12 from /123.239.61.43:38115
+Received: #103$0*-1.9417475%
+In: 103
+Out: 0
+Area: -1.9417475
+#13 from /123.239.61.43:16175
+Received: #120$0*-1.6666666%
+In: 120
+Out: 0
+Area: -1.6666666
+#14 from /123.239.61.43:17110
+Received: #123$0*-1.6260163%
+In: 123
+Out: 0
+Area: -1.6260163
+#15 from /123.239.61.43:40356
+Received: #128$0*-1.5625%
+In: 128
+Out: 0
+Area: -1.5625
+#16 from /123.239.61.43:46773
+Received: #137$0*-1.459854%
+In: 137
+Out: 0
+Area: -1.459854
+#17 from /123.239.61.43:64642
+Received: #160$0*-1.25%
+In: 160
+Out: 0
+Area: -1.25
+#18 from /123.239.61.43:29079
+Received: #160$0*-1.25%
+In: 160
+Out: 0
+Area: -1.25
+#19 from /101.58.16.247:25689
+Received: #161$0*-1.242236%
+In: 161
+Out: 0
+Area: -1.242236
+#20 from /101.58.16.247:50237
+Received: #166$0*-1.2048193%
+In: 166
+Out: 0
+Area: -1.2048193
+#21 from /101.58.16.247:27582
+Received: #169$0*-1.183432%
+In: 169
+Out: 0
+Area: -1.183432
+#22 from /101.58.16.247:62977
+Received: #169$0*-1.183432%
+In: 169
+Out: 0
+Area: -1.183432
+#23 from /101.58.16.247:24636
+Received: #175$0*-1.1428572%
+In: 175
+Out: 0
+Area: -1.1428572
+#24 from /101.58.16.247:64098
+Received: #176$0*-1.1363636%
+In: 176
+Out: 0
+Area: -1.1363636
+#25 from /101.58.16.247:51251
+Received: #186$0*-1.0752689%
+In: 186
+Out: 0
+Area: -1.0752689
+#26 from /101.58.16.247:23769
+Received: #189$0*-1.0582011%
+In: 189
+Out: 0
+Area: -1.0582011
+#27 from /101.58.16.247:19682
+Received: #197$0*-1.0152284%
+In: 197
+Out: 0
+Area: -1.0152284
+#28 from /101.58.16.247:61883
+Received: #197$0*-1.0152284%
+In: 197
+Out: 0
+Area: -1.0152284

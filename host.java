@@ -139,7 +139,7 @@ public class host {
 		   ps.println(month + "," + date  + "," + hour  + "," + minute  + "," + second + "," + inFin + "," + outFin + "," + pplInStr + "," + appForm);
 		   //End of CSV WRITE
 		   try(PrintStream printStream = new PrintStream(outputStream)){
-		      printStream.print(str);
+		      printStream.print("Data Synced To Server");
 		   }
 			   } catch(NumberFormatException e)
 				{
